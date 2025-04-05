@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-900 dark:text-gray-100;
+  }
+  
+  /* 
+   * The app supports multiple languages through the ThemeContext
+   * and language can be switched in the Settings page.
+   * Supported languages: English, Spanish, French, German, Japanese
+   */
+  
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    @apply w-2;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 dark:bg-gray-600 rounded;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-400 dark:bg-gray-500;
+  }
+  
+  /* Enhanced animations */
+  /* Shimmer effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+  
+  /* Input focus animations */
+  input:focus, textarea:focus, select:focus {
+    @apply outline-none ring-2 ring-blue-500 dark:ring-blue-400 transition-all duration-200;
+    animation: focus-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes focus-pulse {
+    0%, 100% {
+      @apply ring-opacity-70;
+    }
+    50% {
+      @apply ring-opacity-40;
+    }
+  }
+  
+  /* Button effects */
+  button, a {
+    @apply transition-all duration-200;
+  }
+  
+  button:active:not(:disabled),
+  a:active {
+    @apply transform scale-95;
+  }
+  
+  /* Gradient text shimmer effect */
+  .animate-gradient {
+    @apply bg-clip-text text-transparent bg-[length:200%_auto] bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500;
+    animation: shimmer 8s linear infinite;
+  }
+}
+
